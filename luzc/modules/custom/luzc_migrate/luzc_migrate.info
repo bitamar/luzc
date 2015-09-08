@@ -1,0 +1,15 @@
+name = "Luzc migration"
+description = "Populate content."
+package = "Luzc"
+core = 7.x
+dependencies[] = migrate
+dependencies[] = migrate_extras
+
+; Handlers
+files[] = handlers/LuzcMigrateBase.php
+
+files[] = handlers/node/LuzcCompaniesMigrate.php
+files[] = handlers/node/LuzcEventsMigrate.php
+
+files[] = handlers/user/LuzcUsersMigrate.php
+

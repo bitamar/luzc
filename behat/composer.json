@@ -1,0 +1,10 @@
+{
+  "name": "Behat tests for Luzc",
+  "description": "Functional testing for Luzc installation profile.",
+  "require": {
+    "drupal/drupal-extension": "~3.0"
+  },
+  "config": {
+    "bin-dir": "bin/"
+  }
+}

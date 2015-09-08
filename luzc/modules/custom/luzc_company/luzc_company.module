@@ -1,0 +1,9 @@
+<?php
+/**
+ * @file
+ * Code for the Luzc Company feature.
+ */
+
+include_once 'luzc_company.features.inc';
+
+
