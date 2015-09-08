@@ -435,7 +435,7 @@ module.exports = function (grunt) {
     buildcontrol: {
       dist: {
         options: {
-          remote: 'https://github.com/.git',
+          remote: 'https://github.com/bitamar/luzc.git',
           branch: 'gh-pages',
           commit: true,
           push: true

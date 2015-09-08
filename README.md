@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/.svg)](https://travis-ci.org/)
+[![Build Status](https://travis-ci.org/bitamar/luzc.svg)](https://travis-ci.org/bitamar/luzc)
 
 # Drupal 7 - Install Profile Luzc
 
