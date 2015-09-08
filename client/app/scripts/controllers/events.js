@@ -8,11 +8,10 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('EventsCtrl', function ($scope, events, authors, mapConfig, $state, $stateParams, $log) {
+  .controller('EventsCtrl', function ($scope, events, authors, $state, $stateParams, $log) {
 
     // Initialize values.
     $scope.events = events;
-    $scope.mapConfig = mapConfig;
     $scope.authors = authors;
     $scope.selectedAuthorId = null;
 
@@ -43,10 +42,4 @@ angular.module('clientApp')
     if ($stateParams.userId) {
       selectedAuthorId($stateParams.userId);
     }
-
-    // Select marker in the Map.
-    $scope.$on('leafletDirectiveMarker.click', function(event, args) {
-      var stateName = $stateParams.userId ? 'dashboard.byCompany.byUser.events.event' : 'dashboard.byCompany.events.event';
-      $state.go(stateName, {eventId: parseInt(args.markerName)});
-    });
   });

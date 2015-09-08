@@ -14,7 +14,6 @@ angular
     'ngCookies',
     'ngSanitize',
     'config',
-    'leaflet-directive',
     'LocalStorageModule',
     'ui.router',
     'angular-loading-bar'
@@ -78,9 +77,6 @@ angular
         // Since the state is abstract, we inline the <ui-view> tag.
         template: '<ui-view/>',
         resolve: {
-          mapConfig: function(Map) {
-            return Map.getConfig();
-          },
           authors: function($stateParams, Events) {
             return Events.getAuthors($stateParams.companyId);
           }

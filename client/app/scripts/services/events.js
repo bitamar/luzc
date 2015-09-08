@@ -8,7 +8,7 @@
  * Service in the clientApp.
  */
 angular.module('clientApp')
-  .service('Events', function ($q, $http, $timeout, Config, Marker, $rootScope, $log) {
+  .service('Events', function ($q, $http, $timeout, Config, $rootScope, $log) {
 
     // A private cache key.
     var cache = {};
@@ -175,11 +175,6 @@ angular.module('clientApp')
         events[event.id].lng = parseFloat(event.location.lng);
 
         delete event.location;
-
-        // Extend meter with marker properties and methods.
-        angular.extend(events[event.id], Marker);
-        // Define default icon properties and methods, in order, to be changed later.
-        events[event.id].unselect();
       });
 
       return events;
