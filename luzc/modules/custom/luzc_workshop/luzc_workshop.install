@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function luzc_workshop_schema() {
+  $schema = array();
+
+  $schema['workshops'] = array(
+    'description' => 'Workshops',
+    'foreign keys' => array(
+      'author' => array(
+        'table' => 'user',
+        'columns' => array('author' => 'uid'),
+      ),
+      'teacher' => array(
+        'table' => 'user',
+        'columns' => array('teacher' => 'uid'),
+      ),
+    ),
+    'primary key' => array('id'),
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'date' => array(
+        'description' => 'The workshop date.',
+        'mysql_type' => 'date',
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'start_time' => array(
+        'description' => 'The workshop start time.',
+        'mysql_type' => 'time',
+        'type' => 'int',
+      ),
+      'end_time' => array(
+        'description' => 'The workshop end time.',
+        'mysql_type' => 'time',
+        'type' => 'int',
+      ),
+      'teacher' => array(
+        'description' => 'The teacher user ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+      ),
+      'type' => array(
+        'description' => 'The workshop type term ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'recurrent' => array(
+        'description' => 'Whether this workshop should be repeated every week automatically.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+      ),
+      'author' => array(
+        'description' => 'The user who created the workshop.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+    ),
+  );
+
+  $schema['workshop_participants'] = array(
+    'description' => 'Workshops participants',
+    'unique keys' => array(
+      'participation' => array('workshop', 'participant'),
+    ),
+    'foreign keys' => array(
+      'workshop' => array(
+        'table' => 'workshops',
+        'columns' => array('workshop' => 'id'),
+      ),
+      'participant' => array(
+        'table' => 'user',
+        'columns' => array('participant' => 'uid'),
+      ),
+    ),
+    'primary key' => array('id'),
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'workshop' => array(
+        'description' => 'The workshop ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'participant' => array(
+        'description' => 'The participant user ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'recurrent' => array(
+        'description' => 'Whether this participant should be copied to the next copy of the workshop.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+      ),
+      'active' => array(
+        'description' => 'Whether this participant should be copied to the next copy of the workshop.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+      ),
+    ),
+  );
+
+  return $schema;
+}

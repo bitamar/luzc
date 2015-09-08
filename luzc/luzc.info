@@ -50,3 +50,4 @@ dependencies[] = luzc_company
 dependencies[] = luzc_event
 dependencies[] = luzc_file
 dependencies[] = luzc_restful
+dependencies[] = luzc_workshop

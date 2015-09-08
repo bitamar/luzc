@@ -261,6 +261,9 @@ function import_demo_content {
     echo -e  "${BGYELLOW}                                                                 ${RESTORE}"
   fi
 
+  # Import sample workshops.
+  drush sql-cli < $ROOT/luzc/modules/custom/luzc_workshop/workshops.sql
+
   cd $ROOT
   echo
 }

@@ -1,0 +1,8 @@
+name = Luzc Workshop
+core = 7.x
+package = Luzc
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = workshop_types
+files[] = includes/LuzcWorkshopMetadataController.php

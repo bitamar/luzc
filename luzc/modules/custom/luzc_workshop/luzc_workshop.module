@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * Implements hook_entity_info().
+ */
+function luzc_workshop_entity_info() {
+  return array(
+    'workshop' => array(
+      'label' => t('Workshop'),
+      'base table' => 'workshops',
+      'entity keys' => array(
+        'id' => 'id',
+      ),
+      'entity class' => 'Entity',
+      'controller class' => 'EntityAPIController',
+      'metadata controller class' => 'LuzcWorkshopMetadataController',
+      'views controller class' => 'EntityDefaultViewsController',
+      'module' => 'luzc_workshop',
+    ),
+  );
+}
+
+/**
+ * Callback for getting daily data properties.
+ */
+function luzc_workshop_get_properties($item, array $options, $name, $entity_type) {
+  switch ($name) {
+    case 'teacher':
+      return $item->$name;
+
+    case 'type':
+      return taxonomy_term_load($item->type);
+
+  }
+}
