@@ -30,7 +30,7 @@ angular
      * @param $timeout
      *   The timeout service.
      */
-    var page403 = function($state, Auth,$timeout) {
+    var page403 = function($state, Auth, $timeout) {
       if (!Auth.isAuthenticated()) {
         // We need to use $timeout to make sure $state is ready to
         // transition.
@@ -70,6 +70,11 @@ angular
             return $stateParams.companyId;
           }
         }
+      })
+      .state('dashboard.workshops', {
+        url: '/',
+        templateUrl: 'views/workshops.html',
+        controller: 'WorkshopsCtrl'
       })
       .state('dashboard.byCompany', {
         url: '/dashboard/{companyId:int}',

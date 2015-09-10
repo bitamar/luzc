@@ -1,14 +1,59 @@
-// @todo: We can't import _bootstrap.scss, as for some reason it causes the
-// PhantomCSS tests to fail on Travis.
-
-// $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-// bower:scss
-// @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-
 @import 'loadingbar.scss';
 @import 'spinner.scss';
 
-#map {
-  min-height: 500px;
+.container.full-width {
+  padding: 0;
+}
+
+.luz-days {
+  display: flex;
+  justify-content: space-around;
+
+  .day {
+    background-color: white;
+    padding: 4px;
+    margin: 4px;
+    flex-basis: 80px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    min-height: 100px;
+
+    h4 {
+      font-size: 10px;
+      margin-top: -20px;
+      text-align: center;
+      color: gray;
+    }
+  }
+
+  .workshop {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    //background-color: #FFD54F;
+    padding: 10px 2px 4px;
+    //border: 1px solid #ccc;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    .participant {
+      width: 5px;
+      height: 5px;
+      display: inline-block;
+      border: 1px solid #c0c0c0;
+      border-radius: 50%;
+
+      &.occupied {
+        background-color: yellowgreen;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
 }
 
