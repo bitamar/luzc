@@ -10,9 +10,8 @@
 angular.module('clientApp')
   .controller('HomepageCtrl', function ($scope, $state, account, $log) {
     if (account) {
-      // @todo: Remove parseInt()?
       var defaultCompanyId = parseInt(account.companies[0].id);
-      $state.go('dashboard.byCompany.events', {companyId: defaultCompanyId});
+      $state.go('dashboard.workshops', {companyId: defaultCompanyId});
     }
     else {
       // Redirect to login.

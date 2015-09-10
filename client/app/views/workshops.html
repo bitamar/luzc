@@ -1,0 +1,8 @@
+<div class="luz-days">
+    <ul ng-repeat="day in days" class="day">
+        <h4>{{ day.title }}</h4>
+        <li class="workshop" ng-repeat="workshop in workshops[day.raw]">
+            <span ng-repeat="i in range(0, 4)" class="participant" ng-class="{occupied: workshop.participants[i]}"></span>
+        </li>
+    </ul>
+</div>
